@@ -52,8 +52,8 @@ func GetMeeting(response http.ResponseWriter, request *http.Request) {
  }
 func GetMeetingsWithinTF(response http.ResponseWriter, request *http.Request) {
 	response.Header().Set("content-type", "application/json")
-	s, _ := request.URL.Query()["start"]
-	e, _ := request.URL.Query()["end"]
+	s, _ := request.URL.Query()["s"]
+	e, _ := request.URL.Query()["e"]
 	var meets Meeting
 	collection := client.Database("Apointy").Collection("meetings")
 	ctx, _ := context.WithTimeout(context.Background(), 30*time.Second)
